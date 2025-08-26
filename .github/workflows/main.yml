@@ -1,1 +1,23 @@
+name: ' Build and Push Docker Image '
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ' Checkout repository '
+        uses: actions/checkout@v3
+
+      - name: ' Login to DockerHub '
+        run: docker login --username ${{ secrets.USERNAME }} --password ${{ secrets.TOKEN }}
+
+      - name: ' Build and push Docker image '
+        run: docker build -t ${{ secrets.USERNAME }}/bloodbankBD .
+
+      - name: ' push Docker image '  
+        run: docker push ${{ secrets.USERNAME }}/bloodbankBD
 
