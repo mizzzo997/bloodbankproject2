@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Eligibility</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="icon" type="image/x-icon" href="6154531.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+            
+        header {
+            background-color: #c8102e;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #a50d24;
+        }
+
+        nav ul li .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #c8102e;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav ul li .submenu li {
+            margin: 0;
+        }
+        nav ul li .submenu li a {
+            padding: 10px;
+            font-size: 16px;
+        }
+        nav ul li:hover .submenu {
+            display: block;
+        }
+          #header-icon {
+    position: absolute;
+    top: 30px; 
+    left: 30px; 
+    width: 80px; 
+    height: auto;
+    z-index: 1;
+}
+
+header {
+    position: relative;
+}
+        .content { padding: 30px 20px; max-width: 800px; margin: 0 auto; }
+         footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        footer .footer-links {
+            margin-top: 10px;
+        }
+        footer .social-icons a {
+            font-size: 24px;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        footer .social-icons a:hover {
+            color: #c8102e;
+        }
+        #quiz-result {
+            display: none;
+        }
+  .home-section {
+            background-color: #ffffff;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .home-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        .home-section p {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+       .quiz-button {
+            background-color: #b91c1c;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .quiz-button:hover {
+            background-color: #b91c1c;
+        }
+        .eligibility-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            background-color: #f9fafb;
+        }
+        .eligibility-section h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .criteria-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .criteria-card {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .criteria-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .criteria-card ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            color: #4b5563;
+        }
+         
+        .text-center {
+            text-align: center;
+        }
+        .deferral-link-container {
+            margin-top: 2rem;
+        }
+        .link {
+            color: #dc2626;
+            text-decoration: underline;
+        }
+        .criteria-card {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .criteria-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .criteria-card ul {
+            list-style: disc;
+            padding-left: 1.25rem;
+            color: #4b5563;
+        }
+        .learn-more-button {
+            margin-top: 1rem;
+            color: #dc2626;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .details {
+            display: none;
+            color: #4b5563;
+            margin-top: 1rem;
+        }
+        .section {
+            padding: 4rem 0;
+            background-color: #f9fafb;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .section h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 2rem;
+        }
+        .section ul {
+            list-style: disc;
+            padding-left: 1.25rem;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .checklist-link-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .blood-types p {
+            color: #4b5563;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .blood-types table {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .blood-types th,
+        .blood-types td {
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            text-align: center;
+        }
+        .blood-types th {
+            background-color: #dc2626;
+            color: #ffffff;
+        }
+        .why-donate p {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+        .why-donate-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        .why-donate-grid div {
+            text-align: center;
+        }
+        .why-donate-grid h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .why-donate-grid p {
+            color: #4b5563;
+        }
+        .quiz-button {
+            display: inline-block;
+            margin-top: 2rem;
+            background-color: #dc2626;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+        }
+        section {
+            padding: 4rem 0;
+            background-color: #ffffff;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .section h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 2rem;
+        }
+        .stories-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        .story-card {
+            background-color: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .story-card p {
+            color: #4b5563;
+        }
+        .deferral-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .deferral-select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25rem;
+        }
+        .deferral-result {
+            margin-top: 1rem;
+            color: #4b5563;
+        }
+        .quiz-section {
+            padding: 4rem 0;
+            background-color: #ffffff;
+        }
+        .quiz-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .quiz-form-container {
+            max-width: 448px; /* Matches max-w-lg (28rem or 448px) */
+            margin: 0 auto;
+            background-color: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .quiz-form h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25rem;
+        }
+        .quiz-button2 {
+            width: 100%;
+            background-color: #dc2626;
+            color: #ffffff;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+        .quiz-button:hover {
+            background-color: #b91c1c;
+        }
+        .quiz-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: none;
+        }
+        .contact-section {
+            padding: 4rem 0;
+            background-color: #f9fafb;
+        }
+        .contact-section p {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+        .contact-link {
+            color: #dc2626;
+            text-decoration: underline;
+        }
+        .text-red-600 {
+            color: #dc2626;
+        }
+        .text-green-600 {
+            color: #16a34a;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+   <header>
+        <h1>Blood Bank</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="donate.html">Donate</a>
+                    <ul class="submenu">
+                        <li><a href="donate.html">Become a Donor</a></li>
+                        <li><a href="request.html">Request Blood</a></li>
+                        <li><a href="eligeable.html">Eligibility Criteria</a></li>
+                    </ul>
+                </li>
+                <li><a href="request.html">Request Blood</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+         <img src="6154531.png" alt="Blood Bank Icon" id="header-icon">
+    </header>
+
+    <section id="home" class="home-section">
+        <div class="container text-center">
+            <h2>Can You Donate Blood?</h2>
+            <p>Find out if you're eligible to save lives through blood donation.</p>
+            <a href="#quiz" class="quiz-button">Take the Eligibility Quiz</a>
+        </div>
+    </section>
+
+    <section id="eligibility" class="eligibility-section">
+        <div class="container">
+            <h2>Eligibility Criteria</h2>
+            <div class="criteria-grid">
+                <div class="criteria-card">
+                    <h3>Age & Weight</h3>
+                    <ul>
+                        <li>At least 17 years old (16 with parental consent).</li>
+                        <li>No upper age limit, but over 65 may need approval.</li>
+                        <li>Minimum weight: 110 lbs (50 kg).</li>
+                    </ul>
+                </div>
+                <div class="criteria-card">
+                    <h3>Health & Hemoglobin</h3>
+                    <ul>
+                        <li>Feel healthy, no cold or flu symptoms.</li>
+                        <li>Normal blood pressure and pulse.</li>
+                        <li>Hemoglobin: ≥12.5 g/dL (females), ≥13.0 g/dL (males).</li>
+                    </ul>
+                </div>
+                <div class="criteria-card">
+                    <h3>Donation Frequency</h3>
+                    <ul>
+                        <li>Whole blood: Every 8 weeks.</li>
+                        <li>Platelets/Plasma: Every 7–14 days (up to 24 times/year).</li>
+                        <li>Double red cells: Every 16 weeks.</li>
+                    </ul>
+                </div>
+                <div class="criteria-card">
+                    <h3>Medical & Lifestyle</h3>
+                    <ul>
+                        <li>No HIV, hepatitis, or major illnesses.</li>
+                        <li>No recent tattoos/piercings (wait 3–12 months).</li>
+                        <li>No IV drug use or high-risk behaviors.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+         <div class="deferral-link-container text-center">
+        <a href="https://drive.google.com/file/d/1bxlCUIdZN1kyNUcHvkU7tjsA_kkZXVJg/view?usp=drive_link" class="link">Download Deferral Guide</a>
+    </div>
+
+    <div class="criteria-card">
+        <h3>Age & Weight</h3>
+        <ul>
+            <li>At least 17 years old (16 with parental consent).</li>
+            <li>No upper age limit, but over 65 may need approval.</li>
+            <li>Minimum weight: 110 lbs (50 kg).</li>
+        </ul>
+        <button onclick="toggleDetails('age-details')" class="learn-more-button">Learn More</button>
+        <div id="age-details" class="details">
+            <p>The 110 lbs minimum ensures donors can safely lose blood volume without risk of fainting or other side effects.</p>
+        </div>
+    </div>
+
+    <section id="prepare" class="section">
+        <div class="container">
+            <h2>How to Prepare for Donation</h2>
+            <ul>
+                <li>Drink plenty of water 24 hours before donating.</li>
+                <li>Eat iron-rich foods like spinach or red meat.</li>
+                <li>Bring a valid ID and know your medical history.</li>
+                <li>Get a good night’s sleep before your appointment.</li>
+            </ul>
+            <div class="checklist-link-container">
+                <a href="https://drive.google.com/file/d/1LTlNmrCX8dAX336wTZTuZCn_7y5aFvCs/view?usp=drive_link" class="link">Download Preparation Checklist</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="blood-types" class="section blood-types">
+        <div class="container">
+            <h2>Understanding Blood Types</h2>
+            <p>Your blood type matters! Donate to find out yours and help those in need.</p>
+            <table>
+                <tr>
+                    <th>Blood Type</th>
+                    <th>Can Donate To</th>
+                </tr>
+                <tr>
+                    <td>O-</td>
+                    <td>All Types</td>
+                </tr>
+                <tr>
+                    <td>O+</td>
+                    <td>O+, A+, B+, AB+</td>
+                </tr>
+                <tr>
+                    <td>A+</td>
+                    <td>A+, AB+</td>
+                </tr>
+                <tr>
+                    <td>A-</td>
+                    <td>A-, A+, AB-, AB+</td>
+                </tr>
+                <tr>
+                    <td>B+</td>
+                    <td>B+, AB+</td>
+                </tr>
+                <tr>
+                    <td>B-</td>
+                    <td>B-, B+, AB-, AB+</td>
+                </tr>
+                <tr>
+                    <td>AB-</td>
+                    <td>AB-, AB+</td>
+                </tr>
+                <tr>
+                    <td>AB+</td>
+                    <td>AB+</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="why-donate" class="section why-donate">
+        <div class="container text-center">
+            <h2>Why Your Donation Matters</h2>
+            <p>Every 2 seconds, someone needs blood. Your donation can save lives in emergencies, surgeries, and for patients with chronic illnesses.</p>
+            <div class="why-donate-grid">
+                <div>
+                    <h3>Trauma Victims</h3>
+                    <p>Accident victims often need blood to survive.</p>
+                </div>
+                <div>
+                    <h3>Cancer Patients</h3>
+                    <p>Blood supports chemotherapy treatments.</p>
+                </div>
+                <div>
+                    <h3>Mothers & Babies</h3>
+                    <p>Blood is critical during childbirth complications.</p>
+                </div>
+            </div>
+            <a href="#quiz" class="quiz-button">See If You Can Donate</a>
+        </div>
+    </section>
+
+    <script>
+        function toggleDetails(id) {
+            const element = document.getElementById(id);
+            element.style.display = element.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+   <section id="stories" class="section">
+        <div class="container">
+            <h2>Donor Stories</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <p>"Donating blood makes me feel like I'm making a difference. It’s a small act with a big impact." – Sarah</p>
+                </div>
+                <div class="story-card">
+                    <p>"I was in a car accident and needed blood. Thanks to donors, I’m here today." – John</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="deferral-lookup" class="section">
+        <div class="container">
+            <h2>Deferral Lookup</h2>
+            <div class="deferral-container">
+                <select id="deferral-select" class="deferral-select">
+                    <option value="">Select a Condition</option>
+                    <option value="tattoo">Tattoo</option>
+                    <option value="malaria">Travel to Malaria Area</option>
+                    <option value="pregnancy">Pregnancy</option>
+                    <option value="surgery">Recent Surgery</option>
+                    <option value="isotretinoin">Isotretinoin (Acne Medication)</option>
+                    <option value="flu-vaccine">Flu Vaccine</option>
+                    <option value="hepatitis">Hepatitis Exposure</option>
+                    <option value="hiv">HIV/AIDS</option>
+                </select>
+                <div id="deferral-result" class="deferral-result"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="quiz-section">
+        <div class="quiz-container">
+            <h2>Eligibility Quiz</h2>
+            <div class="quiz-form-container">
+                <div id="quiz-form">
+                    <div class="form-group">
+                        <label>Are you at least 17 years old?</label>
+                        <select id="age" class="form-select">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Do you weigh at least 110 lbs (50 kg)?</label>
+                        <select id="weight" class="form-select">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Are you feeling healthy today?</label>
+                        <select id="health" class="form-select">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Have you donated blood in the last 8 weeks?</label>
+                        <select id="donation" class="form-select">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <button onclick="checkEligibility()" class="quiz-button2">Check Eligibility</button>
+                </div>
+                <div id="quiz-result" class="quiz-result"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="quiz-container text-center">
+            <h2>Have Questions?</h2>
+            <p>Contact us for more information about blood donation eligibility.</p>
+            <p>contact us: <a href="contactus.html" class="contact-link">contactus</a></p>
+            <p>Email: <a href="mailto:moaazkamel081@gmail.com" class="contact-link">moaazkamel081@gmail.com</a></p>
+            <p>Phone: <a href="tel:+201061046763" class="contact-link">01061046763</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Blood Bank. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/moaaz.kamele?locale=ar_AR" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/mizoo_fc/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="privacy.html"> Privacy Policy</a>
+            <a href="terms.html"> Terms of Service</a>
+            <a href="faq.html"> FAQs</a>
+        </div>
+    </footer>
+
+    <script>
+        const deferrals = {
+            tattoo: "Wait 3 months after getting a tattoo.",
+            malaria: "Wait 12 months after traveling to a malaria-endemic area.",
+            pregnancy: "Wait 6 months after giving birth.",
+            surgery: "Wait 6–12 months after major surgery, depending on recovery.",
+            isotretinoin: "Wait 1 month after stopping isotretinoin (used for acne).",
+            "flu-vaccine": "Wait 2 weeks after receiving a flu vaccine.",
+            hepatitis: "Permanent deferral if exposed to hepatitis B or C.",
+            hiv: "Permanent deferral if diagnosed with HIV/AIDS."
+        };
+        document.getElementById('deferral-select').addEventListener('change', function() {
+            const result = deferrals[this.value] || "Please select a condition to see the deferral period.";
+            document.getElementById('deferral-result').innerHTML = result;
+        });
+
+        function checkEligibility() {
+            const age = document.getElementById('age').value;
+            const weight = document.getElementById('weight').value;
+            const health = document.getElementById('health').value;
+            const donation = document.getElementById('donation').value;
+            const resultDiv = document.getElementById('quiz-result');
+
+            if (!age || !weight || !health || !donation) {
+                resultDiv.innerHTML = '<p class="text-red-600">Please answer all questions.</p>';
+                resultDiv.style.display = 'block';
+                return;
+            }
+
+            if (age === 'no' || weight === 'no' || health === 'no' || donation === 'yes') {
+                resultDiv.innerHTML = '<p class="text-red-600">You may not be eligible to donate at this time. Please review the <a href="#eligibility" class="underline">eligibility criteria</a> or contact us.</p>';
+            } else {
+                resultDiv.innerHTML = '<p class="text-green-600">You may be eligible to donate! Please contact us or visit a donation center for further screening.</p>';
+            }
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

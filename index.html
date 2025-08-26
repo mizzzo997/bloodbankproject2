@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="java.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank</title>
+    <link rel="icon" type="image/x-icon" href="6154531.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css"
+    <script src="java.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Blood Bank</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="donate.html">Donate</a>
+                    <ul class="submenu">
+                        <li><a href="donate.html">Become a Donor</a></li>
+                        <li><a href="request.html">Request Blood</a></li>
+                        <li><a href="eligeable.html">Eligibility Criteria</a></li>
+                    </ul>
+                </li>
+                <li><a href="request.html">Request Blood</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <img src="6154531.png" alt="Blood Bank Icon" id="header-icon">
+    </header>
+    <section class="hero">
+        <h1>Save Lives, Donate Blood</h1>
+        <p>Join our mission to provide life-saving blood to those in need. Every donation counts!</p>
+       
+    </section>
+    <video width="320" height="240" autoplay muted>
+  
+        <source src="vedio.mp4" type="video/mp4">
+        <source src="vedio.mp4" type="video/ogg">
+
+    </video>
+    
+    <section class="benefits">
+        <div class="f1">
+            <h3>Save Lives</h3>
+            <p>Your donation can save up to three lives.</p>
+        </div>
+        <div class="f2">
+            <h3>Community Support</h3>
+            <p>Help your community during emergencies.</p>
+        </div>
+        <div class="f3">
+            <h3>Health Benefits</h3>
+            <p>Donating blood can improve your health.</p>
+        </div>
+    </section>
+
+<div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="2.jpg">
+                
+            </div>
+            <div class="slide">
+                <img src="7.jpg">
+               
+            </div>
+            <div class="slide">
+                <img src="3.jpg">
+                
+            </div>
+            <div class="slide">
+                <img src="6.jpg">
+                
+            </div>
+        </div>
+
+<button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        next.addEventListener('click', nextSlide);
+        prev.addEventListener('click', prevSlide);
+
+        
+        let autoSlide = setInterval(nextSlide, 5000);
+
+        
+        sliderContainer.addEventListener('mouseenter', () => clearInterval(autoSlide));
+        sliderContainer.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 5000));
+
+        
+        showSlide(currentIndex);
+    </script>
+
+    <section class="how-to-donate">
+        <h2>How to Donate</h2>
+        <ol>
+            <li>Check if you meet the eligibility criteria, such as age and health requirements.</li>
+            <li>Find a donation center or event near you using our locator tool.</li>
+            <li>Schedule an appointment to streamline your donation process.</li>
+            <li>Arrive hydrated and prepared for a quick and safe donation.</li>
+            <li>Receive a thank-you and follow-up on your donation’s impact.</li>
+        </ol>
+    </section>
+
+    <section class="donation-section">
+       <h2>Who Can You Donate To?</h2>
+       <p>Find out which blood types can receive your donation. Your blood can save lives!</p>
+       <table class="donation-table">
+        <thead>
+            <tr class="table-header">
+                <th scope="col">Your Blood Type</th>
+                <th scope="col">Can Donate To</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="critical">
+                <td>O-</td>
+                <td>All Types (O-, O+, A-, A+, B-, B+, AB-, AB+)</td>
+            </tr>
+            <tr>
+                <td>O+</td>
+                <td>O+, A+, B+, AB+</td>
+            </tr>
+            <tr>
+                <td>A-</td>
+                <td>A-, A+, AB-, AB+</td>
+            </tr>
+            <tr>
+                <td>A+</td>
+                <td>A+, AB+</td>
+            </tr>
+            <tr>
+                <td>B-</td>
+                <td>B-, B+, AB-, AB+</td>
+            </tr>
+            <tr>
+                <td>B+</td>
+                <td>B+, AB+</td>
+            </tr>
+            <tr>
+                <td>AB-</td>
+                <td>AB-, AB+</td>
+            </tr>
+            <tr>
+                <td>AB+</td>
+                <td>AB+</td>
+            </tr>
+        </tbody>
+        </table>
+       <p class="note">Note: <span class="highlight">Yellow</span> highlights indicate blood types in critical need.</p>
+       <a href="donate.html" class="cta">Donate Now</a>
+    </section>
+    <section class="testimonials">
+        <h2>What Donors Say</h2>
+        <div class="testimonial">
+            <p>"Donating blood was easier than I thought, and knowing I helped someone in need feels incredible."</p>
+            <cite>– Sarah M., Regular Donor</cite>
+        </div>
+        <div class="testimonial">
+            <p>"The staff were so friendly, and the process was quick. I’m proud to be part of this lifesaving mission."</p>
+            <cite>– John D., First-Time Donor</cite>
+        </div>
+         <div class="testimonial">
+            <p>"I was nervous at first, but the team made me feel so comfortable. Now I donate every few months!"</p>
+            <cite>– Emily R., Repeat Donor</cite>
+        </div>
+         <div class="testimonial">
+            <p>"After my friend received a transfusion, I knew I had to give back. It’s a small act with a huge impact."</p>
+            <cite>– Michael T., Inspired Donor</cite>
+        </div>
+    </section>
+ <div class="blood-container">
+    <div class="blood-bag" data-type="O+">
+      <span>O+</span>
+    </div>
+    <div class="blood-bag critical" data-type="O-">
+      <span>O-</span>
+    </div>
+    <div class="blood-bag" data-type="A+">
+      <span>A+</span>
+    </div>
+    <div class="blood-bag" data-type="A-">
+      <span>A-</span>
+    </div>
+    <div class="blood-bag" data-type="B+">
+      <span>B+</span>
+    </div>
+    <div class="blood-bag" data-type="B-">
+      <span>B-</span>
+    </div>
+    <div class="blood-bag" data-type="AB+">
+      <span>AB+</span>
+    </div>
+    <div class="blood-bag" data-type="AB-">
+      <span>AB-</span>
+    </div>
+  </div>
+  <p class="critical-text">----> YELLOW MEANS CRITICAL NEED</p>
+    <footer>
+        <p>© 2025 Blood Bank. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/moaaz.kamele?locale=ar_AR" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/mizoo_fc/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-links">
+            <a class="privacy" href="privacy.html">Privacy Policy</a>
+            <a class="terms" href="terms.html">Terms of Service</a>
+            <a class="faq" href="faq.html">FAQs</a>
+        </div>
+    </footer>
+   <div id="cookie-notice">
+    <p>We use cookies to enhance your experience on our blood bank website, including tracking donations and improving our services. Learn more in our <a href="/cookie-policy">Cookie Policy</a>.</p>
+    <button onclick="closeCookieNotice()">Accept</button>
+  </div>
+
+  <script>
+
+    window.onload = function() {
+      document.getElementById('cookie-notice').style.display = 'block';
+    };
+
+    function closeCookieNotice() {
+      document.getElementById('cookie-notice').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="6154531.png">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+         header {
+            background-color: #c8102e;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #a50d24;
+        }
+
+        nav ul li .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #c8102e;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav ul li .submenu li {
+            margin: 0;
+        }
+        nav ul li .submenu li a {
+            padding: 10px;
+            font-size: 16px;
+        }
+        nav ul li:hover .submenu {
+            display: block;
+        }
+       #header-icon {
+    position: absolute;
+    top: 30px; 
+    left: 30px; 
+    width: 80px; 
+    height: auto;
+    z-index: 1;
+}
+
+header {
+    position: relative; 
+
+}
+        .content { padding: 30px 20px; max-width: 800px; margin: 0 auto; }
+         footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        footer .footer-links {
+            margin-top: 10px;
+        }
+        footer .social-icons a {
+            font-size: 24px;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        footer .social-icons a:hover {
+            color: #c8102e;
+        }
+        #header-icon {
+    position: absolute;
+    top: 30px; 
+    left: 30px; 
+    width: 80px; 
+    height: auto;
+    z-index: 1;
+}
+
+header {
+    position: relative; 
+}
+ .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header h1{
+            color: white;
+        }
+        h1, h2 {
+            color: #ff4d4d;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e6f3ff;
+            border-radius: 4px;
+            display: none;
+        }
+        #tracker {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9e79f;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+        .emergency-banner {
+            background-color: #ffcccc;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        .faq-item h4 {
+            margin: 0;
+            color: #333;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .progress {
+            height: 20px;
+            background-color: #ff4d4d;
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .faq-item {
+    margin-bottom: 15px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blood Bank</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="donate.html">Donate</a>
+                    <ul class="submenu">
+                        <li><a href="donate.html">Become a Donor</a></li>
+                        <li><a href="request.html">Request Blood</a></li>
+                        <li><a href="eligeable.html">Eligibility Criteria</a></li>
+                    </ul>
+                </li>
+                <li><a href="request.html">Request Blood</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+         <img src="6154531.png" alt="Blood Bank Icon" id="header-icon">
+    </header>
+    <div class="emergency-banner">
+        Emergency? Call our 24/7 Helpline: +048-2098909
+    </div>
+    <div class="container">
+        <h1>Request Blood</h1>
+        <p>Fill out the form below to request blood for yourself or a loved one. Our team will process your request and contact you as soon as possible.</p>
+
+        <h2>Blood Request Form</h2>
+        <form id="bloodRequestForm" onsubmit="submitRequest(event)">
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" required>
+                <div id="nameError" class="error">Please enter your full name.</div>
+            </div>
+            <div class="form-group">
+                <label for="bloodType">Your Blood Type *</label>
+                <select id="bloodType" required>
+                    <option value="">Select Blood Type</option>
+                    <option value="O-">O-</option>
+                    <option value="O+">O+</option>
+                    <option value="A-">A-</option>
+                    <option value="A+">A+</option>
+                    <option value="B-">B-</option>
+                    <option value="B+">B+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="AB+">AB+</option>
+                </select>
+                <div id="typeError" class="error">Please select a blood type.</div>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity (Units) *</label>
+                <input type="number" id="quantity" min="1" required>
+                <div id="quantityError" class="error">Please enter a valid quantity (minimum 1).</div>
+            </div>
+            <div class="form-group">
+                <label for="urgency">Urgency Level *</label>
+                <select id="urgency" required>
+                    <option value="Low">Low (Within 1 Week)</option>
+                    <option value="Medium">Medium (Within 48 Hours)</option>
+                    <option value="High">High (Immediate)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number (e.g., 01061046763)</label>
+                <input type="tel" id="contact" pattern="^0[0-9]{10}$" required>
+                <div id="contactError" class="error">Please enter a 11-digit phone number starting with zero.</div>
+            </div>
+            <div class="form-group">
+                <label for="location">Location *</label>
+                <input type="text" id="location" required>
+                <div id="locationError" class="error">Please enter your location.</div>
+            </div>
+            <button type="submit">Submit Request</button>
+        </form>
+
+        <div id="status">
+            <h3>Request Status</h3>
+            <p id="statusMessage">Your request is being processed. We will contact you soon.</p>
+        </div>
+
+        <h2>Blood Compatibility Chart</h2>
+        <p>Understand which blood types can receive your requested blood type:</p>
+        <table>
+            <tr>
+                <th>Your Blood Type</th>
+                <th>Can Receive From</th>
+            </tr>
+            <tr>
+                <td>O-</td>
+                <td>O-</td>
+            </tr>
+            <tr>
+                <td>O+</td>
+                <td>O-, O+</td>
+            </tr>
+            <tr>
+                <td>A-</td>
+                <td>O-, A-</td>
+            </tr>
+            <tr>
+                <td>A+</td>
+                <td>O-, O+, A-, A+</td>
+            </tr>
+            <tr>
+                <td>B-</td>
+                <td>O-, B-</td>
+            </tr>
+            <tr>
+                <td>B+</td>
+                <td>O-, O+, B-, B+</td>
+            </tr>
+            <tr>
+                <td>AB-</td>
+                <td>O-, A-, B-, AB-</td>
+            </tr>
+            <tr>
+                <td>AB+</td>
+                <td>All Types (O-, O+, A-, A+, B-, B+, AB-, AB+)</td>
+            </tr>
+        </table>
+    <h2>Check Blood Availability</h2>
+        <div id="availability">
+            <label for="checkBloodType">Select Blood Type to Check:</label>
+            <select id="checkBloodType">
+                <option value="">Select Blood Type</option>
+                <option value="O-">O-</option>
+                <option value="O+">O+</option>
+                <option value="A-">A-</option>
+                <option value="A+">A+</option>
+                <option value="B-">B-</option>
+                <option value="B+">B+</option>
+                <option value="AB-">AB-</option>
+                <option value="AB+">AB+</option>
+            </select>
+            <button onclick="checkAvailability()">Check Availability</button>
+            <p id="availabilityMessage"></p>
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+        </div>
+        <h2>Request Tracker</h2>
+        <div id="tracker">
+            <p>Current Requests: <span id="requestCount">0</span></p>
+            <ul id="requestList"></ul>
+        </div>
+    </div>
+    <h2>Frequently Asked Questions</h2>
+        <div id="faq">
+            <div class="faq-item">
+                <h4>Who can request blood?</h4>
+                <p>Anyone in need of blood for medical purposes can request, including patients, hospitals, or guardians.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How long does it take to process a request?</h4>
+                <p>Requests are typically processed within 24-48 hours, depending on availability and urgency.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I request blood for someone else?</h4>
+                <p>Yes, you can request blood on behalf of a patient. Please provide their details in the form.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+        <h4>What happens after I submit a request?</h4>
+        <p>Once you submit your request, our team will review it and check blood availability. We’ll contact you via the provided phone number to confirm the request and provide updates on the delivery timeline.</p>
+    </div>
+    <div class="faq-item">
+        <h4>Is there a cost associated with requesting blood?</h4>
+        <p>In many cases, blood is provided free of charge for emergency needs. However, processing or transportation fees may apply depending on your location and the healthcare system. We’ll inform you of any costs during the confirmation process.</p>
+    </div>
+    <div class="faq-item">
+        <h4>Can I cancel my blood request?</h4>
+        <p>Yes, you can cancel your request by contacting our support team via the helpline (+048-2098909) or through the live chat. Please provide your request details so we can process the cancellation promptly.</p>
+    </div>
+    <div class="faq-item">
+        <h4>What should I do if my requested blood type is not available?</h4>
+        <p>If your requested blood type is out of stock, we’ll notify you immediately and explore alternative options, such as compatible blood types or sourcing from nearby blood banks. You can also check the availability section for updates.</p>
+    </div>
+    <div class="faq-item">
+        <h4>Is it safe to receive blood from a blood bank?</h4>
+        <p>Absolutely. All blood donations are rigorously tested for infectious diseases and properly stored to ensure safety. We follow strict health and safety protocols to protect recipients.</p>
+    </div>
+    <div class="faq-item">
+        <h4>Can I request blood if I don’t know the patient’s blood type?</h4>
+        <p>We strongly recommend knowing the patient’s blood type to ensure compatibility. If you’re unsure, consult with a healthcare provider to determine the blood type before submitting your request.</p>
+    </div>
+    <div class="faq-item">
+        <h4>How often can I request blood?</h4>
+        <p>There’s no strict limit on how often you can request blood, but each request is evaluated based on medical need and availability. If you need frequent transfusions, we recommend coordinating with your healthcare provider and our team for a steady supply.</p>
+    </div>
+
+    <footer>
+        <p>© 2025 Blood Bank. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/moaaz.kamele?locale=ar_AR" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/mizoo_fc/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-links">
+            <a class="privacy" href="privacy.html">Privacy Policy</a>
+            <a class="terms" href="terms.html">Terms of Service</a>
+            <a class="faq" href="faq.html">FAQs</a>
+        </div>
+    </footer>
+     <script>
+        let requestCount = 0;
+        const requestList = document.getElementById('requestList');
+        const form = document.getElementById('bloodRequestForm');
+
+        const bloodAvailability = {
+            "O-": 0,
+            "O+": 10,
+            "A-": 2,
+            "A+": 8,
+            "B-": 1,
+            "B+": 5,
+            "AB-": 3,
+            "AB+": 4
+        };
+
+        function submitRequest(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const bloodType = document.getElementById('bloodType').value;
+            const quantity = document.getElementById('quantity').value;
+            const urgency = document.getElementById('urgency').value;
+            const contact = document.getElementById('contact').value.trim();
+            const location = document.getElementById('location').value.trim();
+
+
+            let isValid = true;
+
+            if (!fullName) {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('nameError').style.display = 'none';
+            }
+
+
+            if (!bloodType) {
+                document.getElementById('typeError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('typeError').style.display = 'none';
+            }
+
+            if (!quantity || quantity < 1) {
+                document.getElementById('quantityError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('quantityError').style.display = 'none';
+            }
+
+                    
+            if (!contact.match(/^0[0-9]{10}$/)) {
+                document.getElementById('contactError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('contactError').style.display = 'none';
+            }
+
+                    
+            if (!location) {
+                document.getElementById('locationError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('locationError').style.display = 'none';
+            }
+
+            if (isValid) {
+                requestCount++;
+                document.getElementById('requestCount').textContent = requestCount;
+
+                const listItem = document.createElement('li');
+                listItem.textContent = `${fullName} - ${bloodType} (${quantity} units) - Urgency: ${urgency} - ${location} - ${new Date().toLocaleString()} (EEST)`;
+                requestList.appendChild(listItem);
+
+                document.getElementById('status').style.display = 'block';
+                document.getElementById('statusMessage').textContent = `Thank you, ${fullName}! Your request for ${quantity} unit(s) of ${bloodType} blood (Urgency: ${urgency}) has been received at ${new Date().toLocaleString()} (EEST). We will contact you at ${contact} soon.`;
+
+
+                form.reset();
+            } else {
+                console.log('Form validation failed. Check inputs.');
+            }
+        }
+
+        form.addEventListener('input', function(e) {
+            const target = e.target;
+            if (target.id === 'contact') {
+                if (!target.value.match(/^0[0-9]{10}$/)) {
+                    document.getElementById('contactError').style.display = 'block';
+                } else {
+                    document.getElementById('contactError').style.display = 'none';
+                }
+            }
+        });
+
+
+        function checkAvailability() {
+            const bloodType = document.getElementById('checkBloodType').value;
+            const message = document.getElementById('availabilityMessage');
+            const progress = document.getElementById('progress');
+
+            if (!bloodType) {
+                message.textContent = "Please select a blood type.";
+                progress.style.width = "0%";
+                return;
+            }
+
+            const unitsAvailable = bloodAvailability[bloodType];
+            if (unitsAvailable === 0) {
+                message.textContent = `Sorry, ${bloodType} is currently out of stock.`;
+                progress.style.width = "0%";
+            } else if (unitsAvailable <= 3) {
+                message.textContent = `Limited stock for ${bloodType}: ${unitsAvailable} unit(s) available.`;
+                progress.style.width = `${unitsAvailable * 10}%`; 
+            } else {
+                message.textContent = `${bloodType} is available: ${unitsAvailable} unit(s) in stock.`;
+                progress.style.width = `${unitsAvailable * 10}%`;
+            }
+        }
+    </script>
+</body>
+</html>
