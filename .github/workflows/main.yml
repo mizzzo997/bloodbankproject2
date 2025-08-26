@@ -13,10 +13,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to DockerHub
-        run: echo "${{ secrets.TOKEN }}" | docker login -u "${{ secrets.USERNAME }}" --password-stdin
-
-      - name: Build Docker image
-        run: docker build -t ${{ secrets.USERNAME }}/bloodbankBD .
-
-      - name: Push Docker image
-        run: docker push ${{ secrets.USERNAME }}/bloodbankBD
+        run: docker login --username mizzzo997 --password dckr_pat_--9kXdZsYSk6vV2vb2l-uXNbmJI
