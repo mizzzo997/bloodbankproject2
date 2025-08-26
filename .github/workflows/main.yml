@@ -14,11 +14,11 @@ jobs:
       - name: تسجيل الدخول لـ Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.TOKEN }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.token }}
 
       - name: بناء صورة الـ Docker
-        run: docker build -t ${{ secrets.USERNAME }}/bd .
+        run: docker build -t ${{ secrets.username }}/bd .
 
       - name: رفع صورة الـ Docker
-        run: docker push ${{ secrets.USERNAME }}/bd
+        run: docker push ${{ secrets.username }}/bd
